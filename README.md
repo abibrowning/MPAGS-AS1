@@ -9,4 +9,4 @@ Basic steps:
 - Calculate area of high points
 - Calculate total area of image (may need user input depending on file type able to read)
 - Output image overlaid with the edges found using the threshold
-- Output the % coverage and area coverage
+- Output the % coverage, area coverage and average height compared to background
