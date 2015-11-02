@@ -1,0 +1,34 @@
+# -*- coding: utf-8 -*-
+# Code for MPAGS AS1
+# Image Height and Coverage Analysis
+
+import numpy as np
+import pylab
+import scipy.misc as misc
+import scipy.ndimage as scim
+import skimage
+
+userimage = input('Enter file path name: ')  #Takes file name from user
+
+image = misc.imread('userimage') #Reads in image
+
+pylab.imshow(image)
+#pylab.show()
+pylab.gray()
+
+imageF = scim.filters.gaussian_filter(image)
+
+Thresh = skimage.filter.threshold.otsu(imageF)
+
+imhigh = imageF>=Thresh
+imlow = imageF<Thresh
+
+pylab.show(imhigh)
+pylab.show(imlow)
+
+##Calculate size of original image
+n = float(input('Enter image dimension n in nm: ')) #Enter image dimensions [n,m]
+m = float(input('Enter image dimension m in nm: '))
+surfacearea = n*m
+print("Total Surface Area is ", surfacearea, "nm2")
+
